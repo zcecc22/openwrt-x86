@@ -3,6 +3,7 @@ include ./common-netgear.mk
 include ./common-senao.mk
 include ./common-tp-link.mk
 include ./common-yuncore.mk
+include ./common-ubnt.mk
 
 DEVICE_VARS += ADDPATTERN_ID ADDPATTERN_VERSION
 DEVICE_VARS += SEAMA_SIGNATURE SEAMA_MTDBLOCK
@@ -1244,6 +1245,16 @@ define Device/etactica_eg200
   SUPPORTED_DEVICES += rme-eg200
 endef
 TARGET_DEVICES += etactica_eg200
+
+define Device/extreme-networks_ws-ap3805i
+  SOC := qca9557
+  BLOCKSIZE := 256k
+  DEVICE_VENDOR := Extreme Networks
+  DEVICE_MODEL := WS-AP3805i
+  DEVICE_PACKAGES := ath10k-firmware-qca988x-ct kmod-ath10k-ct
+  IMAGE_SIZE := 29440k
+endef
+TARGET_DEVICES += extreme-networks_ws-ap3805i
 
 define Device/glinet_6408
   $(Device/tplink-8mlzma)
